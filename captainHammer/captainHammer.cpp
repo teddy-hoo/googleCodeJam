@@ -4,8 +4,8 @@
 #include<math.h>
 #include<stdio.h>
 
-#define PI 3.14159265
 #define G 9.8
+const double PI = acos(-1.0);
 
 using namespace std;
 
@@ -15,12 +15,14 @@ void main(){
 	double velocity;
 	double distance;
 	double theta;
+	double ans;
 	int caseCount;
 	dataFile >> caseCount;
 	cout.precision(5);
 	for(int caseNumber = 1; caseNumber <= caseCount; ++caseNumber){
 		dataFile >> velocity >> distance;
-		theta = asin(distance * G / (2 * velocity * velocity)) * 180.0 / PI;
-		resultFile << "Case #" << caseNumber << ": " << ios::fixed << setprecision(6) << theta << endl;
+		ans = asin(distance * G / velocity / velocity) / 2;
+		theta = ans / PI * 180;
+		resultFile << "Case #" << caseNumber << ": " << fixed << setprecision(8) << theta << endl;
 	}
 }
