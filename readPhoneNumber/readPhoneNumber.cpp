@@ -21,6 +21,7 @@ void getPatterns(vector<int> &patterns, const string pattern){
 }
 
 void generateResult(string &readResult, int charCount, char number){
+	int count = 1;
 	switch(charCount){
 	case 2:
 		readResult.append(" double");
@@ -49,42 +50,47 @@ void generateResult(string &readResult, int charCount, char number){
 	case 10:
 		readResult.append(" decuple");
 		break;
-	}
-	switch(number - '0'){
-	case 0:
-		readResult.append(" zero");
-		break;
-	case 1:
-		readResult.append(" one");
-		break;
-	case 2:
-		readResult.append(" two");
-		break;
-	case 3:
-		readResult.append(" three");
-		break;
-	case 4:
-		readResult.append(" four");
-		break;
-	case 5:
-		readResult.append(" five");
-		break;
-	case 6:
-		readResult.append(" six");
-		break;
-	case 7:
-		readResult.append(" seven");
-		break;
-	case 8:
-		readResult.append(" eight");
-		break;
-	case 9:
-		readResult.append(" nine");
+	default:
+		count = charCount;
 		break;
 	}
+	for(int i = 0; i < count; ++i){
+		switch(number - '0'){
+		case 0:
+			readResult.append(" zero");
+			break;
+		case 1:
+			readResult.append(" one");
+			break;
+		case 2:
+			readResult.append(" two");
+			break;
+		case 3:
+			readResult.append(" three");
+			break;
+		case 4:
+			readResult.append(" four");
+			break;
+		case 5:
+			readResult.append(" five");
+			break;
+		case 6:
+			readResult.append(" six");
+			break;
+		case 7:
+			readResult.append(" seven");
+			break;
+		case 8:
+			readResult.append(" eight");
+			break;
+		case 9:
+			readResult.append(" nine");
+			break;
+		}
+	}	
 }
 
-void main(){
+int main(){
 	ifstream dataFile("A-large-practice.in");
 	ofstream resultFile("A-large-practice.out");
 
@@ -126,4 +132,5 @@ void main(){
 		}
 		resultFile << "Case #" << caseNumber << ":" << readResult << endl;
 	}
+	return 0;
 }
