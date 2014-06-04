@@ -1,0 +1,19 @@
+[main] readPhoneNumber 1000 (0) exception: trapped!
+[main] readPhoneNumber 1000 (0) exception: code 0xC0000005 at 0x40173F
+[main] readPhoneNumber 1000 (0) exception: ax 0x0 bx 0xA0325A8 cx 0x0 dx 0x0
+[main] readPhoneNumber 1000 (0) exception: si 0x0 di 0x0 bp 0x247FDB4 sp 0x247FBC8
+[main] readPhoneNumber 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] readPhoneNumber 1000 (0) stack: Stack trace:
+[main] readPhoneNumber 1000 (0) stack: frame 0: sp = 0x247F768, pc = 0x6100A2C3
+[main] readPhoneNumber 1000 (0) stack: frame 1: sp = 0x247F7A4, pc = 0x7798B41D
+[main] readPhoneNumber 1000 (0) stack: frame 2: sp = 0x247F7C8, pc = 0x7798B3EF
+[main] readPhoneNumber 1000 (1) stack: frame 3: sp = 0x247F878, pc = 0x77940133
+[main] readPhoneNumber 1000 (0) stack: frame 4: sp = 0x247FDB4, pc = 0x61004402
+[main] readPhoneNumber 1000 (0) stack: frame 5: sp = 0x247FF50, pc = 0x61004420
+[main] readPhoneNumber 1000 (0) stack: frame 6: sp = 0x247FF5C, pc = 0x41A87A
+[main] readPhoneNumber 1000 (0) stack: frame 7: sp = 0x247FF6C, pc = 0x40103A
+[main] readPhoneNumber 1000 (0) stack: frame 8: sp = 0x247FF88, pc = 0x7640338A
+[main] readPhoneNumber 1000 (0) stack: frame 9: sp = 0x247FF94, pc = 0x7796BF32
+[main] readPhoneNumber 1000 (0) stack: frame 10: sp = 0x247FFD4, pc = 0x7796BF05
+[main] readPhoneNumber 1000 (0) stack: frame 11: sp = 0x247FFEC, pc = 0x0
+[main] readPhoneNumber 1000 (0) stack: End of stack trace
