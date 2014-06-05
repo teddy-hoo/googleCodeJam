@@ -14,7 +14,7 @@ void getPatterns(vector<int> &patterns, const string pattern){
 			number = 0;
 		}
 		else{
-			number += number * 10 + (pattern[i] - '0');
+			number = number * 10 + (pattern[i] - '0');
 		}
 	}
 	patterns.push_back(number);
@@ -54,6 +54,7 @@ void generateResult(string &readResult, int charCount, char number){
 		count = charCount;
 		break;
 	}
+	// cout << charCount << endl;
 	for(int i = 0; i < count; ++i){
 		switch(number - '0'){
 		case 0:
