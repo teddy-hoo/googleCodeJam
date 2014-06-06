@@ -116,14 +116,10 @@ int main(){
 		charCount = 1;
 		for(int j = 1; j <= numberLength; ++j){
 			--patterns[patternsIndex];
-			if(patterns[patternsIndex] == 0){
-				generateResult(readResult, charCount, preChar);
-				++patternsIndex;
-				preChar = phoneNumber[j];
-				charCount = 1;
-				continue;
-			}
-			if(phoneNumber[j] != preChar){
+			if(patterns[patternsIndex] == 0 || phoneNumber[j] != preChar){
+				if(patterns[patternsIndex] == 0){
+					++patternsIndex;
+				}
 				generateResult(readResult, charCount, preChar);
 				preChar = phoneNumber[j];
 				charCount = 1;
