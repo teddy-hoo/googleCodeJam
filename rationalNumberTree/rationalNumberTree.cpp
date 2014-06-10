@@ -4,48 +4,65 @@
 #include<vector>
 
 using namespace std;
+enum Position{LEFT, RIGHT};
 
 int main(){
-	ifstream dataFile("B-small-practice.in");
-	ofstream resultFile("B-small-practice.out");
+	ifstream dataFile("B-large-practice.in");
+	ofstream resultFile("B-large-practice.out");
 
 	int caseCount;
 	int caseNumber;
 	int problemType;
-	int n;
-	int p, q;
+	int64_t n;
+	int64_t p, q;
 	vector<bool> findElement;
-	map<int, vector<int> > findPos;
+	vector<bool> findPos;
 
 	dataFile >> caseCount;
 	for(caseNumber = 1; caseNumber <= caseCount; ++caseNumber){
 		dataFile >> problemType;
-		cout << problemType << endl;
-		if(problemType == 1){
-			findElement.clear();
+		if(problemType == 1){			
 			p = 1;
 			q = 1;
+			findElement.clear();
 			dataFile >> n;
-			cout << n << endl;
 			while(n != 1){
-				findElement.push_back(n % 2 ? true : false);
-				n = n / 2;
+				findElement.push_back(n % 2 == 0 ? LEFT : RIGHT);
+				n = (n >> 1);
+				cout << n << endl;
 			}
-			for(int i = 0; i < findElement.size(); ++i){
-				p = findElement[i] ? p + q : p;
-				q = findElement[i] ? p - q : p + q;
+			for(int i = findElement.size() - 1; i >= 0; --i){
+				if(findElement[i] == LEFT){
+					q = p + q;
+				}
+				else{
+					p = p + q;
+				}
 			}
 			resultFile << "Case #" << caseNumber << ": " << p << " " << q << endl;
 		}
 		else{
 			n = 1;
+			findPos.clear();
 			dataFile >> p >> q;
-			cout << p << " " << q << endl;
-			while(p > 1 || q > 1){
-				cout << p << " " << q << endl;
-				n = p > q ? n * 2 + 1 : n * 2;
-				p = p > q ? p - q : p;
-				q = p > q ? q : q - p;
+			while(p != 1 || q != 1){
+				findPos.push_back(p > q ? RIGHT : LEFT);
+				if(p > q){
+					p = p - q;
+				}
+				else{
+					q = q - p;
+				}
+			}
+			for(int i = findPos.size() - 1; i >= 0; --i){
+				cout << n << endl;
+				if(findPos[i] == LEFT){
+					n = (n << 1);
+				}
+				else{
+					n = (n << 1) + 1;
+				}
+				cout << n << endl;
 			}
 			resultFile << "Case #" << caseNumber << ": " << n << endl;
 		}
