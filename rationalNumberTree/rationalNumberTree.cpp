@@ -13,8 +13,8 @@ int main(){
 	int caseCount;
 	int caseNumber;
 	int problemType;
-	int64_t n;
-	int64_t p, q;
+	unsigned long long int n;
+	unsigned long long int p, q;
 	vector<bool> findElement;
 	vector<bool> findPos;
 
